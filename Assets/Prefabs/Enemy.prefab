@@ -1814,8 +1814,8 @@ MonoBehaviour:
   minShotsToTake: 4
   maxShotsToTake: 8
   rotationSpeed: 250
-  damage: 90
-  shootingAccuracy: 38
+  damage: 100
+  shootingAccuracy: 92.6
   shootingPosition: {fileID: 6856845673789273266}
   bloodSplatterFX: {fileID: 19886758, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
   hapticEvent1:

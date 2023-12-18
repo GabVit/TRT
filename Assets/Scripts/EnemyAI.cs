@@ -131,7 +131,6 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     public void Shoot()
     {
-        bool hitPlayer = true;
 
        
             
@@ -156,15 +155,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
                     }
                  
                    
-                    // Ejecutar uno de los eventos al azar
-                    if (Random.Range(0, 1) == 0)
-                    {
-                        hapticEvent1.Invoke();
-                    }
-                    else
-                    {
-                        hapticEvent2.Invoke();
-                    }
+                    
                 }
                 else
                 {

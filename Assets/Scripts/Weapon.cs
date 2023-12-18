@@ -69,6 +69,7 @@ public class Weapon : MonoBehaviour
         ApplyRecoil();
         SeleccionAudio(0, 0.2f);
         Invoke("SeleccionAudio(1, 0.2f)", 0.5f);
+        //Player.SendBTMessage("F");
 
     }
 

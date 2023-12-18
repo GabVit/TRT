@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18306574, g: 0.22874251, b: 0.30669174, a: 1}
+  m_IndirectSpecularColor: {r: 0.18306622, g: 0.2287434, b: 0.30669293, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1352,11 +1352,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1107799011}
     - targetCorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1831201389}
+      insertIndex: 4
+      addedObject: {fileID: 1831201396}
     - targetCorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1831201396}
+      addedObject: {fileID: 1831201389}
     - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 452463682}
@@ -2276,7 +2276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866262110}
   m_Layer: 0
-  m_Name: Caracters
+  m_Name: Characters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2584,6 +2584,9 @@ MonoBehaviour:
   head: {fileID: 452463688}
   cameraShake: {fileID: 1393510209}
   textoPrefab: {fileID: 6579398722401678558, guid: 3d40f66d435a43940b0a6e0f56ee8393, type: 3}
+  deviceName: ESP32_BT
+  motor1: F
+  motor2: B
 --- !u!4 &1107799010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
@@ -2609,7 +2612,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.092921
+  MinDistance: 0.30377483
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4212,6 +4215,9 @@ MonoBehaviour:
   head: {fileID: 452463688}
   cameraShake: {fileID: 1393510209}
   textoPrefab: {fileID: 0}
+  deviceName: ESP32_BT
+  motor1: F
+  motor2: B
 --- !u!136 &1831201396
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4232,7 +4238,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 1.4
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &1868352233
