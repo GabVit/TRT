@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public string motor1 = "F";
     public string motor2 = "B";
 
+
+
     private void Start()
     {
         #if UNITY_2020_2_OR_NEWER
@@ -65,6 +67,7 @@ public class Player : MonoBehaviour
        
 
         StartCoroutine(cameraShake.Shake());
+
         health -= damage;
         audioManagerEasy.SeleccionAudio(0, 3f);
        
