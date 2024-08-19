@@ -2,21 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManagerEasy : MonoBehaviour
-{
+public class AudioManagerEasy : MonoBehaviour {
     [SerializeField] private AudioClip[] audios;
 
     private AudioSource controlAudio;
 
-    private void Awake()
-    {   
+    private void Awake() {
         controlAudio = GetComponent<AudioSource>();
     }
 
-    public void SeleccionAudio(int indice, float volumen)
-    {
-        controlAudio.PlayOneShot(audios[indice], volumen);
+    public void SelectAudio(int index, float volume) {
+        controlAudio.PlayOneShot(audios[index], volume);
     }
-
-    
 }

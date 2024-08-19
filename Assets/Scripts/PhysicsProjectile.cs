@@ -3,35 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PhysicsProjectile : Projectile
-{
+public class PhysicsProjectile : Projectile {
     [SerializeField] private float lifeTime;
     private Rigidbody rigidBody;
 
-    private void Awake()
-    {
+    private void Awake() {
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    public override void Init(Weapon weapon)
-    {
+    public override void Init(Weapon weapon) {
         base.Init(weapon);
         Destroy(gameObject, lifeTime);
     }
 
-    public override void Launch()
-    {
+    public override void Launch() {
         base.Launch();
         rigidBody.AddRelativeForce(Vector3.forward * weapon.GetShootingForce(), ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         Destroy(gameObject);
-        ITakeDamage[] damageTakers = other.GetComponentsInParent<ITakeDamage>();
+        var damageTakers = other.GetComponentsInParent<ITakeDamage>();
 
-        foreach (var taker in damageTakers)
-        {
+        foreach (var taker in damageTakers) {
             taker.TakeDamage(weapon, this, transform.position);
         }
     }

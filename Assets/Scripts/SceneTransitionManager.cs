@@ -3,26 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransitionManager : MonoBehaviour
-{
+public class SceneTransitionManager : MonoBehaviour {
     public FadeScreen fadeScreen;
     public static SceneTransitionManager singleton;
 
-    private void Awake()
-    {
+    private void Awake() {
         if (singleton && singleton != this)
             Destroy(singleton);
 
         singleton = this;
     }
 
-    public void GoToScene(int sceneIndex)
-    {
+    public void GoToScene(int sceneIndex) {
         StartCoroutine(GoToSceneRoutine(sceneIndex));
     }
 
-    IEnumerator GoToSceneRoutine(int sceneIndex)
-    {
+    private IEnumerator GoToSceneRoutine(int sceneIndex) {
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(fadeScreen.fadeDuration);
 
@@ -30,21 +26,18 @@ public class SceneTransitionManager : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void GoToSceneAsync(int sceneIndex)
-    {
+    public void GoToSceneAsync(int sceneIndex) {
         StartCoroutine(GoToSceneAsyncRoutine(sceneIndex));
     }
 
-    IEnumerator GoToSceneAsyncRoutine(int sceneIndex)
-    {
+    private IEnumerator GoToSceneAsyncRoutine(int sceneIndex) {
         fadeScreen.FadeOut();
         //Launch the new scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        var operation = SceneManager.LoadSceneAsync(sceneIndex);
         operation.allowSceneActivation = false;
 
         float timer = 0;
-        while(timer <= fadeScreen.fadeDuration && !operation.isDone)
-        {
+        while (timer <= fadeScreen.fadeDuration && !operation.isDone) {
             timer += Time.deltaTime;
             yield return null;
         }

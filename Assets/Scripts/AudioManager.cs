@@ -2,42 +2,33 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-[System.Serializable]
-public class Sound
-{
+[Serializable]
+public class Sound {
     public string name;
     public AudioClip clip;
-    [Range(0, 1)]
-    public float volume = 1;
-    [Range(-3, 3)]
-    public float pitch = 1;
+    [Range(0, 1)] public float volume = 1;
+    [Range(-3, 3)] public float pitch = 1;
     public bool loop = false;
     public bool playOnAwake = false;
     [HideInInspector] public AudioSource source;
 }
 
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
 
     public Sound[] sounds;
 
-    void Awake()
-    {
-        if (instance == null)
-        {
+    private void Awake() {
+        if (instance == null) {
             instance = this;
-        }
-        else
-        {
+        } else {
             Destroy(gameObject);
             return;
         }
 
         DontDestroyOnLoad(gameObject);
 
-        foreach (Sound s in sounds)
-        {
+        foreach (var s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.playOnAwake = s.playOnAwake;
@@ -47,11 +38,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
+    public void Play(string name) {
+        var s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) {
             Debug.LogWarning("Sound: " + name + " not found");
             return;
         }
@@ -59,13 +48,9 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void Stop(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+    public void Stop(string name) {
+        var s = Array.Find(sounds, sound => sound.name == name);
 
-        if (s != null)
-        {
-            s.source.Stop();
-        }
+        s?.source.Stop();
     }
 }
