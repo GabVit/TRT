@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class CivilFootsteps : MonoBehaviour
-{
+public class CivilFootsteps : MonoBehaviour {
     private AudioManager audioManager;
 
-    private void Start()
-    {
-        // Obtén la instancia del AudioManager
+    private void Start() {
         audioManager = AudioManager.instance;
     }
-    public void PlayFootstepSound()
-    {
+
+    public void PlayFootstepSound() {
         audioManager.Play("CivilFootstepSound");
     }
 }

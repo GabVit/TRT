@@ -5,14 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class SetOptionFromUI : MonoBehaviour
-{
+public class SetOptionFromUI : MonoBehaviour {
     public Scrollbar volumeSlider;
     public TMPro.TMP_Dropdown turnDropdown;
     public SetTurnTypeFromPlayerPref turnTypeFromPlayerPref;
 
-    private void Start()
-    {
+    private void Start() {
         volumeSlider.onValueChanged.AddListener(SetGlobalVolume);
         turnDropdown.onValueChanged.AddListener(SetTurnPlayerPref);
 
@@ -20,14 +18,12 @@ public class SetOptionFromUI : MonoBehaviour
             turnDropdown.SetValueWithoutNotify(PlayerPrefs.GetInt("turn"));
     }
 
-    public void SetGlobalVolume(float value)
-    {
+    public void SetGlobalVolume(float value) {
         AudioListener.volume = value;
     }
 
-    public void SetTurnPlayerPref(int value)
-    {
-        PlayerPrefs.SetInt("turn", value); 
+    public void SetTurnPlayerPref(int value) {
+        PlayerPrefs.SetInt("turn", value);
         turnTypeFromPlayerPref.ApplyPlayerPref();
     }
 }
